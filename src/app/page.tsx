@@ -60,7 +60,7 @@ export default function Home() {
           </motion.div>
           <div className="flex items-center space-x-4">
            <motion.div whileHover={{ scale: 1.05 }}>
-              <button className='  text-black bg-white py-2 px-6 rounded-lg'>Download</button>
+              <button className='  text-black bg-white py-2 px-6 rounded-md'>Download</button>
             </motion.div>
           </div>
         </div>
@@ -86,13 +86,13 @@ export default function Home() {
             </p>
             <div className="flex justify-center gap-4">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 flex px-6 py-2 text-black rounded-lg">
+                <button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 flex px-8 py-2 text-black rounded-md">
                   Get Started
                   <ArrowRight className="ml-2 mt-1 h-5 w-5" />
                 </button>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <button className='border border-white py-2 px-4 rounded-lg' >
+                <button className='border border-white py-2 px-6 rounded-lg' >
                   View Documentation
                 </button>
               </motion.div>
@@ -161,7 +161,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-3xl" />
           <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/5 to-blue-500/5 rounded-3xl blur-2xl" />
           
-          <div className="relative bg-background/80 backdrop-blur-sm rounded-3xl border shadow-lg overflow-hidden">
+          <div className="relative bg-background/80 backdrop-blur-sm rounded-3xl border-l border-r border-b border-t-[bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500] shadow-lg overflow-hidden">
             {/* Decorative top border */}
             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" />
             
@@ -228,10 +228,11 @@ export default function Home() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              className='flex justify-center'
             >
-              <button className="py-2 px-6 text-black">
+              <button className="flex py-3 px-6 text bg-white text-black rounded-md">
                 Install Extension
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <span><ArrowRight className="ml-2 h-5 w-5" /></span>
               </button>
             </motion.div>
           </div>
