@@ -60,7 +60,7 @@ export default function Home() {
           </motion.div>
           <div className="flex items-center space-x-4">
            <motion.a href="https://marketplace.visualstudio.com/items?itemName=Optivance.dependency-analyzer" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }}>
-              <button className='  text-black bg-white py-2 px-6 rounded-md'>Download</button>
+              <button className='text-black bg-white py-2 px-6 rounded-md'>Download</button>
             </motion.a>
           </div>
         </div>
@@ -84,11 +84,11 @@ export default function Home() {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               A powerful VS Code extension for visualizing and managing project dependencies in Python, TypeScript, and Java projects.
             </p>
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center sm:gap-4 gap-2 ">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <button className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 flex px-8 py-2 text-black rounded-md">
                   Get Started
-                  <ArrowRight className="ml-2 mt-1 h-5 w-5" />
+                  <ArrowRight className="ml-2  mt-3 sm:mt-1 h-5 w-5" />
                 </button>
               </motion.div>
               <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
