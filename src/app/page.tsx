@@ -59,9 +59,9 @@ export default function Home() {
             <span className="font-semibold text-lg">Dependency Analytics</span>
           </motion.div>
           <div className="flex items-center space-x-4">
-           <motion.div whileHover={{ scale: 1.05 }}>
+           <motion.a href="https://marketplace.visualstudio.com/items?itemName=Optivance.dependency-analyzer" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.05 }}>
               <button className='  text-black bg-white py-2 px-6 rounded-md'>Download</button>
-            </motion.div>
+            </motion.a>
           </div>
         </div>
       </motion.nav>
@@ -91,11 +91,11 @@ export default function Home() {
                   <ArrowRight className="ml-2 mt-1 h-5 w-5" />
                 </button>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <button className='border border-white py-2 px-6 rounded-lg' >
                   View Documentation
                 </button>
-              </motion.div>
+              </motion.a>
             </div>
           </motion.div>
         </div>
@@ -225,7 +225,8 @@ export default function Home() {
             <p className="text-blue-50 mb-8 max-w-2xl mx-auto">
               Join thousands of developers who are using Dependency Analytics to improve their development experience.
             </p>
-            <motion.div
+            <motion.a
+            href="https://marketplace.visualstudio.com/items?itemName=Optivance.dependency-analyzer" target="_blank" rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className='flex justify-center'
@@ -234,7 +235,7 @@ export default function Home() {
                 Install Extension
                 <span><ArrowRight className="ml-2 h-5 w-5" /></span>
               </button>
-            </motion.div>
+            </motion.a>
           </div>
         </motion.div>
       </div>
