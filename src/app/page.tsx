@@ -95,7 +95,7 @@ export default function Home() {
               <ArrowRight className="hidden sm:inline ml-2" />
             </motion.button>
             </motion.a>
-         
+            <Link href="/docs">
             <motion.button
               className="px-8 py-4 border border-white/20 rounded-lg text-lg font-semibold"
               whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.5)" }}
@@ -103,6 +103,7 @@ export default function Home() {
             >
               Documentation
             </motion.button>
+            </Link>
           </motion.div>
         </motion.div>
 
