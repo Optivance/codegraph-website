@@ -92,7 +92,7 @@ export function FeatureSection() {
   );
 }
 
-function FeatureCard({ icon, title, description, index }: FeatureCardProps) {
+function FeatureCard({ icon, title, description}: FeatureCardProps) {
   return (
     <motion.div
       variants={fadeInUp}
