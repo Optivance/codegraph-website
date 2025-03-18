@@ -5,8 +5,8 @@ import { Navbar } from "@/src/components/ui/Navbar";
 import Footer from "@/src/components/ui/Footer-section";
 
 export const metadata: Metadata = {
-  title: "Docs | MyApp",
-  description: "Documentation page",
+  title: "Optivance",
+  description: "Documentation | Dependency Analysis Extension",
 };
 
 export default function DocsLayout({
