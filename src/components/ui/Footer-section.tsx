@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div className="flex flex-col overflow-hidden w-full bg-black text-white">
       <footer className="flex flex-col items-center justify-center py-8 bg-transparent mt-40 w-full">
-        {/* Container for the text */}
+      
         <div className="max-w-[800px] text-center px-4">
           <h2 className="text-3xl sm:text-5xl font-bold mb-6">
           Visualize your code. Untangle dependencies.

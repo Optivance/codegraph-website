@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileCode, Code2, BrainCircuit } from 'lucide-react';
-import { VelocityScroll } from '../magicui/scroll-based-velocity';
+
 
 interface LanguageCardProps {
   icon: React.ReactNode;
