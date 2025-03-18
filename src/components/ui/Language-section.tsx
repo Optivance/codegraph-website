@@ -25,7 +25,7 @@ const staggerContainer = {
   }
 };
 
-function LanguageCard({ icon, language, features, index }: LanguageCardProps) {
+function LanguageCard({ icon, language, features }: LanguageCardProps) {
   return (
     <motion.div
       variants={fadeInUp}
