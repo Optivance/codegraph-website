@@ -21,9 +21,15 @@ const Footer = () => {
         </div>
 
         {/* Call-to-action Button */}
-        <button className="bg-gradient-to-r from-blue-500/80 to-purple-500/80 hover:from-cyan-500 hover:to-blue-400 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+        <a
+         href="https://marketplace.visualstudio.com/items?itemName=Optivance.dependency-analyzer" 
+         target="_blank" 
+         rel="noopener noreferrer" 
+        >
+        <button className="bg-gradient-to-r from-blue-500/80 to-purple-500/80 hover:from-blue-500/90 hover:to-purple-500/90 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
           Get Started
         </button>
+        </a>
 
         {/* Bottom Section */}
         <div className="bottom-div flex flex-wrap items-center justify-center gap-10 sm:gap-[100px] md:gap-[150px] lg:gap-[200px] mt-[20px] text-lg sm:text-2xl w-full max-w-screen-xl px-4">

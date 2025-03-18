@@ -6,8 +6,8 @@ import { Navbar } from '../components/ui/Navbar';
 import { LanguageSection } from '../components/ui/Language-section';
 import { FeatureSection } from '../components/ui/Feature-section';
 import Footer from '../components/ui/Footer-section';
-import { div } from 'framer-motion/client';
 import { TextReveal } from '../components/magicui/text-reveal';
+import Link from 'next/link';
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -34,6 +34,7 @@ export default function Home() {
       transition: { duration: 2, ease: "easeInOut" }
     }
   };
+
 
   return (
     <div className="min-h-screen bg-black text-white ">
@@ -81,14 +82,20 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
           >
+          <motion.a
+          href="https://marketplace.visualstudio.com/items?itemName=Optivance.dependency-analyzer" 
+          target="_blank" 
+          rel="noopener noreferrer" >
             <motion.button
-              className=" px-5 sm:px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-lg font-semibold"
+              className=" px-5 sm:px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-lg font-semibold"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Get Started
               <ArrowRight className="hidden sm:inline ml-2" />
             </motion.button>
+            </motion.a>
+         
             <motion.button
               className="px-8 py-4 border border-white/20 rounded-lg text-lg font-semibold"
               whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.5)" }}
