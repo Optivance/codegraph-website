@@ -7,7 +7,37 @@ import { LanguageSection } from '../components/ui/Language-section';
 import { FeatureSection } from '../components/ui/Feature-section';
 import Footer from '../components/ui/Footer-section';
 import { TextReveal } from '../components/magicui/text-reveal';
+import { MovingCards } from '../components/ui/aceternity/MovingCards';
 import Link from 'next/link';
+
+// Testimonial data for moving cards
+const testimonials = [
+  {
+    quote: "This dependency visualization tool has completely transformed how our team understands codebase architecture. It's a game-changer for onboarding new developers.",
+    name: "Alex Johnson",
+    title: "Engineering Lead, TechCorp"
+  },
+  {
+    quote: "I use this extension daily to navigate our complex microservices. The visual representation makes understanding dependencies intuitive and fast.",
+    name: "Sarah Chen",
+    title: "Senior Developer, CloudSystems"
+  },
+  {
+    quote: "Refactoring used to be risky business, but with this tool we can immediately see the impact of changes across our entire codebase.",
+    name: "Michael Rodriguez",
+    title: "Software Architect, FinTech Solutions"
+  },
+  {
+    quote: "The interactive graph visualization has dramatically reduced the time it takes to understand service relationships in our codebase.",
+    name: "Priya Patel",
+    title: "DevOps Engineer, DataFlow"
+  },
+  {
+    quote: "As a technical lead, this tool helps me explain complex code relationships to non-technical stakeholders with ease.",
+    name: "Thomas Wright",
+    title: "CTO, Startup Innovations"
+  }
+];
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -132,7 +162,22 @@ export default function Home() {
 
       <LanguageSection />
       <FeatureSection />
-     <Footer />
+
+      {/* Testimonials Section */}
+      <div className="py-20 max-w-7xl mx-auto px-4">
+        <motion.h2 
+          className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          What Developers Are Saying
+        </motion.h2>
+        <MovingCards items={testimonials} speed="slow" direction="right" />
+      </div>
+
+      <Footer />
     </div>
 
    

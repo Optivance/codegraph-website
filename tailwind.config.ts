@@ -55,8 +55,46 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
+  		backgroundImage: {
+  			"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+  			"gradient-conic":
+  				"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+  		},
+  		keyframes: {
+  			scroll: {
+  				'0%': { transform: 'translateX(0)' },
+  				'100%': { transform: 'translateX(calc(-100% - 32px))' },
+  			},
+  			'fade-in': {
+  				'0%': { opacity: '0' },
+  				'100%': { opacity: '1' },
+  			},
+  			'fade-out': {
+  				'0%': { opacity: '1' },
+  				'100%': { opacity: '0' },
+  			},
+  			'pulse-slow': {
+  				'0%, 100%': { opacity: '1' },
+  				'50%': { opacity: '0.6' },
+  			},
+  			'meteor': {
+  				'0%': { transform: 'rotate(215deg) translateX(0)', opacity: '1' },
+  				'70%': { opacity: '1' },
+  				'100%': {
+  					transform: 'rotate(215deg) translateX(-500px)',
+  					opacity: '0',
+  				},
+  			},
+  		},
+  		animation: {
+  			scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
+  			'fade-in': 'fade-in 0.5s ease-in-out forwards',
+  			'fade-out': 'fade-out 0.5s ease-in-out forwards',
+  			'pulse-slow': 'pulse-slow 4s ease-in-out infinite',
+  			'meteor': 'meteor 5s linear infinite',
+  		},
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 } satisfies Config;

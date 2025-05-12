@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { Navbar } from "@/src/components/ui/Navbar";
-import Footer from "@/src/components/ui/Footer-section";
+
 
 export const metadata: Metadata = {
   title: "Optivance - Documentation",
@@ -20,7 +20,7 @@ export default function DocsLayout({
         <main className="min-h-screen">
           {children}
         </main>
-        <Footer />
+    
       </body>
     </html>
   );
