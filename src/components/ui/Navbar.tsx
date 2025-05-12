@@ -2,6 +2,7 @@
 import React from 'react';
 import { GitGraph } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export function Navbar() {
   return (
@@ -16,8 +17,12 @@ export function Navbar() {
           className="flex items-center space-x-4"
           whileHover={{ scale: 1.05 }}
         >
-          <GitGraph className="h-6 w-6 text-blue-500" />
-          <span className="font-semibold text-lg text-white">Optivance</span>
+          <Link href="/">
+            <div className="flex items-center space-x-2">
+              <GitGraph className="h-6 w-6 text-blue-500" />
+              <span className="font-semibold text-lg text-white">Optivance</span>
+            </div>
+          </Link>
         </motion.div>
         <div className="flex items-center space-x-4">
           <motion.a 

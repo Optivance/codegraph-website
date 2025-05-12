@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { ChevronUp, ArrowRight, Code, Zap, Command, Server } from 'lucide-react'
+import Link from 'next/link'
 
 import { DocsSidebar, type DocSection } from '@/src/components/ui/DocsSidebar'
 import { 
@@ -480,9 +481,9 @@ export default function DocsPage() {
                     If you encounter issues not covered in the documentation, you can:
                   </p>
                   <ul className="list-disc list-inside space-y-2 ml-4 text-white/80">
-                    <li>Check the <a href="#" className="text-blue-400 underline">GitHub repository</a> for known issues</li>
-                    <li>Join our <a href="#" className="text-blue-400 underline">Discord community</a> for help</li>
-                    <li>Contact support at <a href="mailto:support@codegraph.dev" className="text-blue-400 underline">support@codegraph.dev</a></li>
+                    <li>Check the <Link href="#" className="text-blue-400 underline">GitHub repository</Link> for known issues</li>
+                    <li>Join our <Link href="#" className="text-blue-400 underline">Discord community</Link> for help</li>
+                    <li>Contact support at <Link href="mailto:support@codegraph.dev" className="text-blue-400 underline">support@codegraph.dev</Link></li>
                   </ul>
                 </div>
               </DocContent>
