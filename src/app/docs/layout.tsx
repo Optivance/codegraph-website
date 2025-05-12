@@ -20,7 +20,7 @@ export default function DocsLayout({
         <main className="min-h-screen">
           {children}
         </main>
-    
+  
       </body>
     </html>
   );

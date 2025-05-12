@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import { ChevronUp, ArrowRight, Code, Zap, Command, Server, ExternalLink } from 'lucide-react'
+import { ChevronUp, ArrowRight, Code, Zap, Command, Server } from 'lucide-react'
 
 import { DocsSidebar, type DocSection } from '@/src/components/ui/DocsSidebar'
 import { 
@@ -9,10 +9,6 @@ import {
   FeatureCard,
   DocPageTransition 
 } from '@/src/components/ui/DocContent'
-import { SparklesEffect } from '@/src/components/ui/aceternity/SparklesEffect'
-import { TiltCard } from '@/src/components/ui/aceternity/TiltCard'
-
-import { ParticlesContainer } from '@/src/components/ui/aceternity/ParticlesContainer'
 
 // Documentation sections data
 const sections: DocSection[] = [
@@ -53,9 +49,6 @@ const sections: DocSection[] = [
   }
 ]
 
-// Testimonial data for moving cards
-
-
 export default function DocsPage() {
   const [activeSection, setActiveSection] = useState('introduction')
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -93,7 +86,7 @@ export default function DocsPage() {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
   }
 
-  const handleSubsectionClick = (sectionId: string, subsection: string) => {
+  const handleSubsectionClick = (sectionId: string) => {
     // Scroll to the section first
     scrollToSection(sectionId)
   }
@@ -103,7 +96,7 @@ export default function DocsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white/80 flex flex-col pt-20 relative">
+    <div className="min-h-screen bg-black text-white/80 flex flex-col pt-20">
       {/* Background gradient effects */}
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none">
         <div className="absolute top-20 left-1/4 w-[500px] h-[500px] rounded-full bg-blue-500/5 blur-3xl" />
@@ -122,22 +115,18 @@ export default function DocsPage() {
       <div className="md:pl-64 w-full transition-all duration-300">
         <div className="max-w-4xl mx-auto px-6 md:px-8 pt-4 pb-32">
           <DocPageTransition>
-            {/* Hero Section with Particles */}
+            {/* Hero Section */}
             <div className="relative mb-20 overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-gray-900/90 to-blue-900/30 p-8">
-              {/* Particles Background */}
-              <div className="absolute inset-0 -z-10">
-                <ParticlesContainer particleColor="#3b82f6" linkColor="#3b82f6" quantity={30} />
-              </div>
+              <div className="absolute top-0 right-0 -mt-16 -mr-16 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
+              <div className="absolute bottom-0 left-0 -mb-16 -ml-16 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl" />
               
               <div className="relative z-10 flex flex-col items-center text-center">
                 <div className="mb-6 inline-flex items-center rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-sm font-medium text-blue-400">
                   v1.2.0 Latest Release
                 </div>
                 <h1 className="mb-4 text-4xl font-bold tracking-tight text-white md:text-5xl">
-                 CodeGraph<br/>
-                  <SparklesEffect color="#60a5fa">
-                    <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Documentation</span>
-                  </SparklesEffect>
+                  Dependency Analysis<br/>
+                  <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Documentation</span>
                 </h1>
                 <p className="mb-8 max-w-2xl text-lg text-white/70">
                   Visualize, understand, and navigate complex code dependencies with ease.
@@ -151,129 +140,95 @@ export default function DocsPage() {
                     Get Started
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </button>
-      <button
+                  <button 
                     onClick={() => scrollToSection('introduction')}
                     className="inline-flex items-center rounded-lg bg-white/5 border border-white/10 px-6 py-3 font-medium text-white hover:bg-white/10 transition-colors"
-      >
+                  >
                     Learn More
-      </button>
+                  </button>
                 </div>
               </div>
             </div>
 
-            {/* Quick Navigation Cards with 3D Effect */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-              <TiltCard 
-                className="cursor-pointer p-1 bg-gradient-to-br from-blue-500/20 to-purple-500/20"
-                tiltAmount={5}
-              >
-                <div 
-                  onClick={() => scrollToSection('getting-started')} 
-                  className="bg-gray-900/95 backdrop-blur-sm p-6 rounded-lg h-full"
-                >
-                  <div className="flex items-start">
-                    <div className="mr-4 rounded-lg bg-blue-500/20 p-2 text-blue-400">
-                      <Command className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">Getting Started</h3>
-                      <p className="mt-2 text-white/70">Installation, prerequisites, and basic setup to begin using the extension</p>
-                    </div>
+            {/* Quick Navigation Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
+              <div onClick={() => scrollToSection('getting-started')} className="cursor-pointer group p-6 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all">
+                <div className="flex items-start">
+                  <div className="mr-4 rounded-lg bg-blue-500/20 p-2 text-blue-400">
+                    <Command className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">Getting Started</h3>
+                    <p className="mt-2 text-white/70">Installation, prerequisites, and basic setup to begin using the extension</p>
                   </div>
                 </div>
-              </TiltCard>
+              </div>
               
-              <TiltCard 
-                className="cursor-pointer p-1 bg-gradient-to-br from-purple-500/20 to-pink-500/20"
-                tiltAmount={5}
-              >
-                <div 
-                  onClick={() => scrollToSection('dependency-view')} 
-                  className="bg-gray-900/95 backdrop-blur-sm p-6 rounded-lg h-full"
-                >
-                  <div className="flex items-start">
-                    <div className="mr-4 rounded-lg bg-purple-500/20 p-2 text-purple-400">
-                      <Code className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-white group-hover:text-purple-400 transition-colors">Dependency View</h3>
-                      <p className="mt-2 text-white/70">Learn how to visualize and navigate your code dependencies</p>
-                    </div>
+              <div onClick={() => scrollToSection('dependency-view')} className="cursor-pointer group p-6 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all">
+                <div className="flex items-start">
+                  <div className="mr-4 rounded-lg bg-purple-500/20 p-2 text-purple-400">
+                    <Code className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white group-hover:text-purple-400 transition-colors">Dependency View</h3>
+                    <p className="mt-2 text-white/70">Learn how to visualize and navigate your code dependencies</p>
                   </div>
                 </div>
-              </TiltCard>
+              </div>
               
-              <TiltCard 
-                className="cursor-pointer p-1 bg-gradient-to-br from-green-500/20 to-emerald-500/20"
-                tiltAmount={5}
-              >
-                <div 
-                  onClick={() => scrollToSection('configuration')} 
-                  className="bg-gray-900/95 backdrop-blur-sm p-6 rounded-lg h-full"
-                >
-                  <div className="flex items-start">
-                    <div className="mr-4 rounded-lg bg-green-500/20 p-2 text-green-400">
-                      <Server className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-white group-hover:text-green-400 transition-colors">Configuration</h3>
-                      <p className="mt-2 text-white/70">Customize the extension to fit your specific project needs</p>
-          </div>
-        </div>
-        </div>
-              </TiltCard>
-              
-              <TiltCard 
-                className="cursor-pointer p-1 bg-gradient-to-br from-yellow-500/20 to-orange-500/20"
-                tiltAmount={5}
-              >
-                <div 
-                  onClick={() => scrollToSection('troubleshooting')} 
-                  className="bg-gray-900/95 backdrop-blur-sm p-6 rounded-lg h-full"
-                >
-                  <div className="flex items-start">
-                    <div className="mr-4 rounded-lg bg-yellow-500/20 p-2 text-yellow-400">
-                      <Zap className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-white group-hover:text-yellow-400 transition-colors">Troubleshooting</h3>
-                      <p className="mt-2 text-white/70">Solutions to common issues and how to get support</p>
-                    </div>
+              <div onClick={() => scrollToSection('configuration')} className="cursor-pointer group p-6 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all">
+                <div className="flex items-start">
+                  <div className="mr-4 rounded-lg bg-green-500/20 p-2 text-green-400">
+                    <Server className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white group-hover:text-green-400 transition-colors">Configuration</h3>
+                    <p className="mt-2 text-white/70">Customize the extension to fit your specific project needs</p>
                   </div>
                 </div>
-              </TiltCard>
+              </div>
+              
+              <div onClick={() => scrollToSection('troubleshooting')} className="cursor-pointer group p-6 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all">
+                <div className="flex items-start">
+                  <div className="mr-4 rounded-lg bg-yellow-500/20 p-2 text-yellow-400">
+                    <Zap className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white group-hover:text-yellow-400 transition-colors">Troubleshooting</h3>
+                    <p className="mt-2 text-white/70">Solutions to common issues and how to get support</p>
+                  </div>
+                </div>
+              </div>
             </div>
-
-            
 
             <div className="space-y-12">
               {/* Introduction Section */}
               <DocContent id="introduction" title="Introduction">
-              <div className="prose prose-invert max-w-none">
-                <p className="text-lg leading-relaxed mb-6">
-                  CodeGraph is an advanced Visual Studio Code extension that revolutionizes how developers understand and navigate their codebase. By providing real-time visualization and analysis of code dependencies, it makes it easier to understand complex project structures and relationships.
-                </p>
+                <div className="prose prose-invert max-w-none">
+                  <p className="text-lg leading-relaxed mb-6">
+                    CodeGraph is an advanced Visual Studio Code extension that revolutionizes how developers understand and navigate their codebase. By providing real-time visualization and analysis of code dependencies, it makes it easier to understand complex project structures and relationships.
+                  </p>
                   
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                     <FeatureCard 
                       title="Visual Insights" 
                       icon={<span role="img" aria-label="magnifying glass">🔍</span>}
                       color="blue"
                     >
-                    <p className="text-sm text-white/70">
-                      Transform your code into interactive visual graphs for better understanding and navigation.
-                    </p>
-                  </FeatureCard>
+                      <p className="text-sm text-white/70">
+                        Transform your code into interactive visual graphs for better understanding and navigation.
+                      </p>
+                    </FeatureCard>
                     
                     <FeatureCard 
                       title="Real-time Analysis" 
                       icon={<span role="img" aria-label="lightning">⚡</span>}
                       color="purple"
                     >
-                    <p className="text-sm text-white/70">
-                      Get instant feedback on code dependencies and relationships as you write code.
-                    </p>
-                  </FeatureCard>
+                      <p className="text-sm text-white/70">
+                        Get instant feedback on code dependencies and relationships as you write code.
+                      </p>
+                    </FeatureCard>
                     
                     <FeatureCard 
                       title="Improved Productivity" 
@@ -297,8 +252,8 @@ export default function DocsPage() {
                   </div>
                   
                   {/* Video/Screenshot Section */}
-                  <TiltCard className="mt-10 overflow-hidden bg-gradient-to-r from-gray-900 to-gray-800">
-                    <div className="aspect-video bg-gray-900/80 flex items-center justify-center p-4">
+                  <div className="mt-10 overflow-hidden rounded-lg border border-white/10 bg-gradient-to-r from-gray-900 to-gray-800">
+                    <div className="aspect-video bg-gray-900/80 flex items-center justify-center">
                       <div className="text-center">
                         <div className="bg-blue-500/20 text-blue-400 rounded-full p-4 mx-auto w-fit mb-4">
                           <Code className="h-8 w-8" />
@@ -307,29 +262,25 @@ export default function DocsPage() {
                       </div>
                     </div>
                     <div className="p-4 border-t border-white/10">
-                      <div className="flex items-center justify-between">
-                        <p className="text-sm text-white/60">
-                          Interactive dependency visualization helps understand code structure
-                        </p>
-                        <a href="#" className="text-blue-400 flex items-center text-sm hover:underline">
-                          View demo <ExternalLink className="ml-1 h-3 w-3" />
-                        </a>
-                      </div>
+                      <p className="text-sm text-white/60">
+                        The interactive dependency graph visualizes connections between files, 
+                        modules, and functions to help you understand your codebase structure.
+                      </p>
                     </div>
-                  </TiltCard>
+                  </div>
                 </div>
               </DocContent>
 
               {/* Getting Started Section */}
               <DocContent id="getting-started" title="Getting Started">
-              <div className="space-y-6">
+                <div className="space-y-6">
                   <h3 className="text-xl font-semibold text-blue-400">Quick Installation</h3>
                   <ol className="list-decimal list-inside space-y-4 ml-4 text-white/80">
                     <li>Open Visual Studio Code</li>
-                  <li>Navigate to the Extensions view (Ctrl+Shift+X / Cmd+Shift+X)</li>
-                  <li>Search for "CodeGraph" and click Install</li>
+                    <li>Navigate to the Extensions view (Ctrl+Shift+X / Cmd+Shift+X)</li>
+                    <li>Search for &quot;CodeGraph&quot; and click Install</li>
                     <li>Reload VS Code when prompted</li>
-                </ol>
+                  </ol>
 
                   <h3 className="text-xl font-semibold text-blue-400 mt-8">Prerequisites</h3>
                   <p className="text-white/80">
@@ -338,7 +289,7 @@ export default function DocsPage() {
                   <ul className="list-disc list-inside space-y-2 ml-4 text-white/80">
                     <li>Visual Studio Code v1.60 or higher</li>
                     <li>A structured project with clear file relationships</li>
-                    </ul>
+                  </ul>
 
                   <h3 className="text-xl font-semibold text-blue-400 mt-8">Configuration</h3>
                   <p className="text-white/80 mb-4">
@@ -356,9 +307,9 @@ export default function DocsPage() {
 
               {/* Dependency View Section */}
               <DocContent id="dependency-view" title="Dependency View">
-              <div className="space-y-6">
+                <div className="space-y-6">
                   <p className="text-white/80">
-                    The Dependency View is the core feature of CodeGraph, providing a visual representation of your code's dependency structure.
+                    The Dependency View is the core feature of CodeGraph, providing a visual representation of your code&apos;s dependency structure.
                   </p>
                   
                   <h3 className="text-xl font-semibold text-blue-400">Generation</h3>
@@ -367,9 +318,9 @@ export default function DocsPage() {
                   </p>
                   <ol className="list-decimal list-inside space-y-2 ml-4 text-white/80">
                     <li>Opening the Command Palette (Ctrl+Shift+P / Cmd+Shift+P)</li>
-                    <li>Typing "CodeGraph: Generate Dependency View"</li>
+                    <li>Typing &quot;CodeGraph: Generate Dependency View&quot;</li>
                     <li>Press Enter to start the analysis</li>
-                </ol>
+                  </ol>
 
                   <h3 className="text-xl font-semibold text-blue-400 mt-8">Navigation</h3>
                   <p className="text-white/80">
@@ -380,8 +331,8 @@ export default function DocsPage() {
                     <li>Pan: Click and drag on the background</li>
                     <li>Select a node: Click on any file node</li>
                     <li>View file: Double-click on a node</li>
-                    </ul>
-                  </div>
+                  </ul>
+                </div>
               </DocContent>
 
               {/* Graph Features Section */}
@@ -422,7 +373,7 @@ export default function DocsPage() {
                   </p>
                   <ol className="list-decimal list-inside space-y-2 ml-4 text-white/80">
                     <li>Click the CodeGraph icon in the activity bar</li>
-                    <li>Select "Open Dependency View" from the context menu</li>
+                    <li>Select &quot;Open Dependency View&quot;from the context menu</li>
                   </ol>
 
                   <h3 className="text-xl font-semibold text-blue-400 mt-8">Advanced Features</h3>
@@ -439,7 +390,7 @@ export default function DocsPage() {
     "src/components/**/*.tsx"
   ]
 }`}
-              </CodeBlock>
+                  </CodeBlock>
                 </div>
               </DocContent>
 
@@ -474,7 +425,7 @@ export default function DocsPage() {
                         <tr className="border-b border-gray-800">
                           <td className="py-2 px-4">layout</td>
                           <td className="py-2 px-4">string</td>
-                          <td className="py-2 px-4">"force"</td>
+                          <td className="py-2 px-4">&quot;force&quot;</td>
                           <td className="py-2 px-4">Graph layout algorithm (force, tree, radial)</td>
                         </tr>
                         <tr className="border-b border-gray-800">
@@ -486,12 +437,12 @@ export default function DocsPage() {
                       </tbody>
                     </table>
                   </div>
-              </div>
+                </div>
               </DocContent>
 
               {/* Troubleshooting Section */}
               <DocContent id="troubleshooting" title="Troubleshooting">
-              <div className="space-y-6">
+                <div className="space-y-6">
                   <h3 className="text-xl font-semibold text-blue-400">Common Issues</h3>
                   
                   <div className="bg-gray-800/30 p-5 rounded-lg border border-yellow-500/20 mb-6">
@@ -535,10 +486,10 @@ export default function DocsPage() {
                   </ul>
                 </div>
               </DocContent>
-              </div>
+            </div>
           </DocPageTransition>
         </div>
-        </div>
+      </div>
 
       {/* Scroll to top button */}
       {showScrollTop && (
