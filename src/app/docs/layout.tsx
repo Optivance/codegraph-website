@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-
-import { Navbar } from "@/src/components/ui/Navbar";
-
+import { CodeGraphNavbar } from "@/src/components/ui/CodeGraphNavbar";
+import { ThemeProvider } from "@/src/components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Optivance - Documentation",
-  description: "Documentation | Dependency Analysis Extension",
+  title: "CodeGraph - Documentation",
+  description: "Documentation | Code Dependency Visualization Tool",
 };
 
 export default function DocsLayout({
@@ -14,13 +13,14 @@ export default function DocsLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased scroll-smooth bg-black text-white">
-        <Navbar />
-        <main className="min-h-screen">
-          {children}
-        </main>
-  
+    <html lang="en" suppressHydrationWarning>
+      <body className="antialiased scroll-smooth bg-background text-foreground">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <CodeGraphNavbar />
+          <main className="min-h-screen">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );

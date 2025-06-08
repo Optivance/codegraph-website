@@ -1,19 +1,20 @@
 'use client'
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Code, Network, GitGraph, Workflow } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Navbar } from '../components/ui/Navbar';
-import { LanguageSection } from '../components/ui/Language-section';
-import { FeatureSection } from '../components/ui/Feature-section';
-import Footer from '../components/ui/Footer-section';
+import { CodeGraphNavbar } from '../components/ui/CodeGraphNavbar';
 import { TextReveal } from '../components/magicui/text-reveal';
 import Link from 'next/link';
+import { EnhancedFeatureSection } from '../components/ui/EnhancedFeatureSection';
+import { CodeGraphGeminiEffect } from '../components/ui/CodeGraphGeminiEffect';
+import { EnhancedCTA } from '../components/ui/EnhancedCTA';
+import CodeGraphFooter from '../components/ui/CodeGraphFooter';
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
   
-  const lampGlow = {
+  const glowEffect = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { 
       opacity: [0.5, 1, 0.5], 
@@ -35,16 +36,38 @@ export default function Home() {
     }
   };
 
+  const features = [
+    {
+      icon: <Code className="h-6 w-6 text-blue-500" />,
+      title: "Multi-Language Support",
+      description: "Visualize dependencies across Python, JavaScript, TypeScript, Java, and more programming languages."
+    },
+    {
+      icon: <Network className="h-6 w-6 text-blue-500" />,
+      title: "Interactive Graphs",
+      description: "Explore your codebase with interactive dependency graphs that help you understand relationships at a glance."
+    },
+    {
+      icon: <GitGraph className="h-6 w-6 text-blue-500" />,
+      title: "Dependency Analysis",
+      description: "Identify circular dependencies, unused code, and optimize your project structure."
+    },
+    {
+      icon: <Workflow className="h-6 w-6 text-blue-500" />,
+      title: "VS Code Integration",
+      description: "Seamlessly integrated with VS Code for a smooth development experience."
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-black text-white ">
-      <Navbar />
+    <div className="min-h-screen bg-background text-foreground">
+      <CodeGraphNavbar />
       
-      {/* Hero Section with Lamp Effect */}
+      {/* Hero Section with Glow Effect */}
       <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <motion.div
-          className="absolute w-[800px] h-[800px] rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-3xl"
-          variants={lampGlow}
+          className="absolute w-[800px] h-[800px] rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-3xl dark:from-blue-500/10 dark:to-purple-500/10"
+          variants={glowEffect}
           initial="hidden"
           animate="visible"
         />
@@ -59,21 +82,21 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Visualize Dependencies
+            Code to Graph
             <br />
-            <span className="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text ">
-              Across Languages
+            <span className="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+              Visualize Dependencies
             </span>
           </motion.h1>
 
           <motion.p 
-            className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 sm:px-10"
+            className="text-xl md:text-2xl text-foreground/70 max-w-3xl mx-auto mb-12 sm:px-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            A powerful VS Code extension for visualizing and managing project dependencies
-            in Python, TypeScript, and Java projects.
+            Simplify your codebase understanding with powerful visualization tools
+            that transform complex dependencies into clear, interactive graphs.
           </motion.p>
 
           <motion.div 
@@ -82,59 +105,47 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
           >
-          <motion.a
-          href="https://marketplace.visualstudio.com/items?itemName=Optivance.dependency-analyzer" 
-          target="_blank" 
-          rel="noopener noreferrer" >
-            <motion.button
-              className=" px-5 sm:px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-lg font-semibold"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <motion.a
+              href="https://marketplace.visualstudio.com/items?itemName=CodeGraph.dependency-visualizer" 
+              target="_blank" 
+              rel="noopener noreferrer"
             >
-              Get Started
-              <ArrowRight className="hidden sm:inline ml-2" />
-            </motion.button>
+              <motion.button
+                className="px-5 sm:px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg text-lg font-semibold text-white"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get Started
+                <ArrowRight className="hidden sm:inline ml-2" />
+              </motion.button>
             </motion.a>
             <Link href="/docs">
-            <motion.button
-              className="px-8 py-4 border border-white/20 rounded-lg text-lg font-semibold"
-              whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.5)" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Documentation
-            </motion.button>
+              <motion.button
+                className="px-8 py-4 border border-border rounded-lg text-lg font-semibold"
+                whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.5)" }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Documentation
+              </motion.button>
             </Link>
           </motion.div>
         </motion.div>
-
-        {/* Animated line  */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100">
-          <motion.path
-            d="M20,50 C40,20 60,80 80,50"
-            stroke="url(#gradient)"
-            strokeWidth="0.5"
-            fill="none"
-            variants={connectionLines}
-            initial="hidden"
-            animate="visible"
-          />
-          <defs>
-            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#3B82F6" />
-              <stop offset="100%" stopColor="#8B5CF6" />
-            </linearGradient>
-          </defs>
-        </svg>
       </div>
-     <TextReveal className="">
-      Optivance changes the way you visualise your code.
-     </TextReveal>
 
-      <LanguageSection />
-      <FeatureSection />
-     <Footer />
+      {/* Network Visualization */}
+      <CodeGraphGeminiEffect 
+        title="Transform Your Codebase" 
+        description="CodeGraph helps you understand complex code relationships through beautiful visualizations" 
+      />
+
+      {/* Enhanced Features Section */}
+      <EnhancedFeatureSection />
+
+      {/* Enhanced CTA Section */}
+      <EnhancedCTA />
+
+      {/* Footer */}
+      <CodeGraphFooter />
     </div>
-
-   
   );
 }
